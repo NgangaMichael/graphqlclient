@@ -1,6 +1,3 @@
-import React from 'react'
-import logo from './assets/mylogo.png'
-
 export default function Header() {
   return (
     <>

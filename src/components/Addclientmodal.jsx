@@ -1,5 +1,4 @@
 import { useState } from "react"
-import { FaUser } from "react-icons/fa"
 import { useMutation } from "@apollo/client"
 import { ADD_CLIENT } from "../mutations/clientMutations"
 import { GET_CLIENTS } from "../queries/clientQueries"
@@ -34,7 +33,7 @@ export default function Addclientmodal() {
   return (
     <>
         <div className="container mt-4">
-        <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addcliemtModal">
+        <button type="button" className="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#addcliemtModal">
         Add Client
         </button>
 

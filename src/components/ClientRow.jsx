@@ -2,23 +2,24 @@ import { FaTrash } from "react-icons/fa"
 import { useMutation } from "@apollo/client"
 import { DELETE_CLIENT } from "../mutations/clientMutations"
 import {GET_CLIENTS} from "../queries/clientQueries.js"
+import { GET_PROJECTS } from "../queries/projectQueries.js"
 
 export default function ClientRow({client}) {
   const [deleteClient] = useMutation(DELETE_CLIENT, {
     variables: { id: client.id },
     // this first option for fetching queries after deletion is easy but if done many times it will slow down your system 
-    // refetchQueries: [{query: GET_CLIENTS}],
+    refetchQueries: [{query: GET_CLIENTS}, {query: GET_PROJECTS}],
 
     // for teh below code, we update using cache which is easier, but it has an error so we have a code on the app.js that sorst the error out 
-    update(cache, {data: {deleteClient}}) {
-      const {clients} = cache.readQuery({
-        query: GET_CLIENTS
-      });
-      cache.writeQuery({
-        query: GET_CLIENTS,
-        data: {clients: clients.filter(client => client.id !== deleteClient.id)}
-      })
-    }
+    // update(cache, {data: {deleteClient}}) {
+    //   const {clients} = cache.readQuery({
+    //     query: GET_CLIENTS
+    //   });
+    //   cache.writeQuery({
+    //     query: GET_CLIENTS,
+    //     data: {clients: clients.filter(client => client.id !== deleteClient.id)}
+    //   })
+    // }
   })
   return (
     <>
