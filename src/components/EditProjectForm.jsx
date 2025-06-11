@@ -13,7 +13,7 @@ export default function EditProjectForm({project}) {
         refetchQueries: [{ query: GET_PROJECTS, variables: { id: project.id}}]
     })
 
-    const onSubmit = (e) => {
+    const onSubmit = (e) => { 
         e.preventDefault()
         if(!name || !description || !status) {
             return alert('Please fill in all fields')

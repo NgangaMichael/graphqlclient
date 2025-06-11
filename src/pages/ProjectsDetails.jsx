@@ -1,10 +1,10 @@
 import { Link, useParams } from "react-router-dom"
 import Spinner from "../components/Spinner"
-import { useQuery } from "@apollo/client"
-import { GET_SINGLE_PROJECTS } from "../queries/projectQueries"
 import ClientInfo from "../components/ClientInfo"
 import DeleteProjectButton from "../components/DeleteProjectButton"
 import EditProjectForm from "../components/EditProjectForm"
+import { useQuery } from "@apollo/client"
+import { GET_SINGLE_PROJECTS } from "../queries/projectQueries"
 
 export default function ProjectsDetails() {
     const {id} = useParams()
